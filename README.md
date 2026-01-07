@@ -71,18 +71,9 @@ composer global require laravel/installer
 laravel new nombre-proyecto
 ```
 Selecciona de opciones:
-- Livewire
+- Livewire Volt
 - Laravel
 - Sin NPM install o build.
-
-Dentro de la carpeta generada:
-```bash
-composer require laravel/breeze --dev
-php artisan breeze:install
-```
-Selecciona de opciones:
-- Blade Alpine.js
-- Sin soporte de Dark Mode (se realiza desde Flowbite)
 
 ### 2. Actualiza manualmente la instalación de Tailwind y Flowbite
 ```bash
@@ -123,6 +114,12 @@ export default defineConfig({
 
 ```js
 import 'flowbite';
+```
+<b>d) remover el control automático de darkMode por parte de Flux</b><br>
+En los archivos que sean necesarios (ej: head.blade.php)
+
+```js
+@fluxAppearance <-- eliminar
 ```
 
 ### 4. Instala flowbite actualizado y compila estilos.
