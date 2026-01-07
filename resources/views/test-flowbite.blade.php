@@ -117,53 +117,51 @@
                     src="https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-11.jpg" alt="">
             </div>
         </div>
+    </div>    
+
+    <div class="min-h-screen flex items-center justify-center">
+        <div id="card-form" class="bg-black/33 backdrop-blur-sm p-8 rounded-2xl border border-white/10 shadow-2xl w-full max-w-md">
+            <form class="max-w-sm mx-auto">
+                <label for="input-group-1" class="block mb-2.5 text-sm font-medium text-heading">Your Email</label>
+                <div class="relative">
+                    <div class="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none">
+                        <svg class="w-4 h-4 text-body" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24"
+                            height="24" fill="none" viewBox="0 0 24 24">
+                            <path stroke="currentColor" stroke-linecap="round" stroke-width="2"
+                                d="m3.5 5.5 7.893 6.036a1 1 0 0 0 1.214 0L20.5 5.5M4 19h16a1 1 0 0 0 1-1V6a1 1 0 0 0-1-1H4a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1Z" />
+                        </svg>
+                    </div>
+                    <input type="text" id="input-group-1"
+                        class="block w-full ps-9 pe-3 py-2.5 bg-neutral-secondary-medium border border-default-medium text-heading text-sm rounded-base focus:ring-brand focus:border-brand shadow-xs placeholder:text-body"
+                        placeholder="name@flowbite.com">
+                </div>
+            </form>
+            <form class="max-w-sm mx-auto">
+                <div class="mb-6">
+                    <label for="success" class="block mb-2.5 text-sm font-medium text-fg-success-strong">Your name</label>
+                    <input type="text" id="success"
+                        class="bg-success-soft border border-success-subtle text-fg-success-strong text-sm rounded-base focus:ring-success focus:border-success block w-full px-3 py-2.5 shadow-xs placeholder:text-fg-success-strong"
+                        placeholder="Success input">
+                    <p class="mt-2.5 text-sm text-fg-success-strong"><span class="font-medium">Well done!</span> Some success
+                        message.</p>
+                </div>
+                <div class="mb-6">
+                    <label for="danger" class="block mb-2.5 text-sm font-medium text-fg-danger-strong">Your name</label>
+                    <input type="text" id="danger"
+                        class="bg-danger-soft border border-danger-subtle text-fg-danger-strong text-sm rounded-base focus:ring-danger focus:border-danger block w-full px-3 py-2.5 shadow-xs placeholder:text-fg-danger-strong"
+                        placeholder="Error input">
+                    <p class="mt-2.5 text-sm text-fg-danger-strong"><span class="font-medium">Oh, snapp!</span> Some error
+                        message.</p>
+                </div>
+            </form>
+            <!-- Modal toggle -->
+            <button data-modal-target="default-modal" data-modal-toggle="default-modal"
+                class="text-white bg-brand box-border border border-transparent hover:bg-brand-strong focus:ring-4 focus:ring-brand-medium shadow-xs font-medium leading-5 rounded-base text-sm px-4 py-2.5 focus:outline-none"
+                type="button">
+                Toggle modal
+            </button>
+        </div>
     </div>
-
-
-    <form class="max-w-sm mx-auto">
-        <label for="input-group-1" class="block mb-2.5 text-sm font-medium text-heading">Your Email</label>
-        <div class="relative">
-            <div class="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none">
-                <svg class="w-4 h-4 text-body" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24"
-                    height="24" fill="none" viewBox="0 0 24 24">
-                    <path stroke="currentColor" stroke-linecap="round" stroke-width="2"
-                        d="m3.5 5.5 7.893 6.036a1 1 0 0 0 1.214 0L20.5 5.5M4 19h16a1 1 0 0 0 1-1V6a1 1 0 0 0-1-1H4a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1Z" />
-                </svg>
-            </div>
-            <input type="text" id="input-group-1"
-                class="block w-full ps-9 pe-3 py-2.5 bg-neutral-secondary-medium border border-default-medium text-heading text-sm rounded-base focus:ring-brand focus:border-brand shadow-xs placeholder:text-body"
-                placeholder="name@flowbite.com">
-        </div>
-    </form>
-
-
-    <form class="max-w-sm mx-auto">
-        <div class="mb-6">
-            <label for="success" class="block mb-2.5 text-sm font-medium text-fg-success-strong">Your name</label>
-            <input type="text" id="success"
-                class="bg-success-soft border border-success-subtle text-fg-success-strong text-sm rounded-base focus:ring-success focus:border-success block w-full px-3 py-2.5 shadow-xs placeholder:text-fg-success-strong"
-                placeholder="Success input">
-            <p class="mt-2.5 text-sm text-fg-success-strong"><span class="font-medium">Well done!</span> Some success
-                message.</p>
-        </div>
-        <div class="mb-6">
-            <label for="danger" class="block mb-2.5 text-sm font-medium text-fg-danger-strong">Your name</label>
-            <input type="text" id="danger"
-                class="bg-danger-soft border border-danger-subtle text-fg-danger-strong text-sm rounded-base focus:ring-danger focus:border-danger block w-full px-3 py-2.5 shadow-xs placeholder:text-fg-danger-strong"
-                placeholder="Error input">
-            <p class="mt-2.5 text-sm text-fg-danger-strong"><span class="font-medium">Oh, snapp!</span> Some error
-                message.</p>
-        </div>
-    </form>
-
-
-
-    <!-- Modal toggle -->
-    <button data-modal-target="default-modal" data-modal-toggle="default-modal"
-        class="text-white bg-brand box-border border border-transparent hover:bg-brand-strong focus:ring-4 focus:ring-brand-medium shadow-xs font-medium leading-5 rounded-base text-sm px-4 py-2.5 focus:outline-none"
-        type="button">
-        Toggle modal
-    </button>
 
     <!-- Main modal -->
     <div id="default-modal" tabindex="-1" aria-hidden="true"
