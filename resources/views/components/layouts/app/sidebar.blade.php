@@ -1,5 +1,32 @@
+@php
+    $groups = [
+        'Platform' => [
+            [
+                'name' => 'Dashboard',
+                'icon' => 'home',
+                'url' => route('dashboard'),
+                'current' => request()->routeIs('dashboard')
+            ],
+            [
+                'name' => 'Test',
+                'icon' => 'home',
+                'url' => route('dashboard'),
+                'current' => request()->routeIs('dashboard')
+            ],
+        ],
+        'Otros' => [
+            [
+                'name' => 'Prueba',
+                'icon' => 'home',
+                'url' => route('dashboard'),
+                'current' => request()->routeIs('dashboard')
+            ],
+        ]
+    ]
+@endphp
+
 <!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}" class="dark">
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
     <head>
         @include('partials.head')
     </head>
@@ -12,9 +39,13 @@
             </a>
 
             <flux:navlist variant="outline">
-                <flux:navlist.group :heading="__('Platform')" class="grid">
-                    <flux:navlist.item icon="home" :href="route('dashboard')" :current="request()->routeIs('dashboard')" wire:navigate>{{ __('Dashboard') }}</flux:navlist.item>
-                </flux:navlist.group>
+                @foreach ($groups as $group => $links)
+                    <flux:navlist.group :heading="$group" class="grid">
+                        @foreach ($links as $link)
+                            <flux:navlist.item :icon="$link['icon']" :href="$link['url']" :current="$link['current']" wire:navigate>{{ $link['name'] }}</flux:navlist.item>
+                        @endforeach
+                    </flux:navlist.group>
+                @endforeach
             </flux:navlist>
 
             <flux:spacer />
