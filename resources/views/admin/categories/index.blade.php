@@ -21,7 +21,7 @@
 					<th scope="col" class="px-6 py-3">
 						NAME
 					</th>
-					<th scope="col" class="px-6 py-3">
+					<th scope="col" class="px-6 py-3" width="10px">
 						EDIT
 					</th>
 				</tr>
@@ -36,12 +36,48 @@
 							{{ $category->name }}
 						</td>
 						<td class="px-6 py-4">
-							231
+							<div class="flex space-x-2">
+								<a href="{{ route('admin.categories.edit', $category) }}" class="btn btn-blue text-xs">
+									Editar
+								</a>
+								<form class="delete-form" action="{{ route('admin.categories.destroy', $category) }}" method="POST">
+									@csrf
+									@method('DELETE')
+									<button class="btn btn-red text-xs">
+										Eliminar
+									</button>
+								</form>
+							<div>
 						</td>
 					</tr>
 				@endforeach
 			</tbody>
 		</table>
 	</div>
+
+	@push('js')
+		<script>
+			forms = document.querySelectorAll('.delete-form');
+			forms.forEach(form => {
+				form.addEventListener('submit', (e) => {
+					e.preventDefault();
+					Swal.fire({
+						title: "¿Estás seguro?",
+						text: "Esta acción es irreversible",
+						icon: "warning",
+						showCancelButton: true,
+						confirmButtonColor: "#3085d6",
+						cancelButtonColor: "#d33",
+						confirmButtonText: "Sí, borra este registro.",
+						cancelButtonText: "Cancelar",
+						}).then((result) => {
+						if (result.isConfirmed) {
+							form.submit();
+						}
+						});
+				});
+			});
+		</script>
+	@endpush
 
 </x-layouts.app>
