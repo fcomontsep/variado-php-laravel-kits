@@ -1,5 +1,5 @@
-# Sistema Laravel (Tailwind Flowbite + Livewire)
-Repositorio experimental para probar una instalación de PHP Laravel 12 con Tailwind CSS v4 + Flowbite v4, utilizando el Starter Kit Livewire.<br>Este repositorio se encuentra en desarrollo y no está desplegado.
+# Sistema Laravel + Kits
+Repositorio experimental para probar una instalación de PHP Laravel 12 con Kits (Tailwind Flowbite, Livewire, Flux).<br>Este repositorio se encuentra en desarrollo y no está desplegado.
 
 <hr>
 <img src="https://i.imgur.com/XftJntg.jpg">
@@ -23,7 +23,6 @@ Repositorio experimental para probar una instalación de PHP Laravel 12 con Tail
 - Laravel (instalado vía ``laravel new``)
 - Tailwind CSS (compilado con CLI)
 - Flowbite (JS + componentes)
-- Breeze (autenticación básica con Laravel)
 - Livewire (en instalación)
 
 <hr>
@@ -32,8 +31,8 @@ Repositorio experimental para probar una instalación de PHP Laravel 12 con Tail
 ### 1. Clona el repositorio
 Utiliza tu gestor git de preferencia (ej: GitHub Desktop) o clona desde la terminal.
 ```bash
-git clone https://github.com/tu-usuario/variado-php-laravel-flowbite.git
-cd variado-php-laravel-flowbite
+git clone https://github.com/tu-usuario/variado-php-laravel-kits.git
+cd variado-php-laravel-kits
 ```
 
 ### 2. Instala las dependencias y configura el entorno
@@ -47,12 +46,12 @@ php artisan key:generate
 ### 3. Configuración local de prueba (Apache + hosts)
 Agrega esta línea al archivo<br><b>C:\Windows\System32\drivers\etc\hosts</b>
 ```bash
-127.0.0.1 laravel-flowbite.test
+127.0.0.1 laravel-kits.test
 ```
 Requerirás un VirtualHost en Apache (por ejemplo, si lo estás utilizando vía XAMPP). <br>Puedes utilizar la siguiente configuración:
 ```bash
 <VirtualHost *:80>
-    ServerName laravel-flowbite.test
+    ServerName laravel-kits.test
     DocumentRoot "C:/Ruta/Al/Repositorio/Public"
 
     <Directory "C:/Ruta/Al/Repositorio/Public">
