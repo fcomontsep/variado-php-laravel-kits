@@ -1,4 +1,10 @@
 <x-layouts.app :title="__('Posts')">
+
+	@push('css')
+		<!-- Include stylesheet -->
+		<link href="https://cdn.jsdelivr.net/npm/quill@2.0.3/dist/quill.snow.css" rel="stylesheet" />
+	@endpush
+
 	<div class="mb-8 flex justify-between items-center">
 		<flux:breadcrumbs>
 			<flux:breadcrumbs.item :href="route('dashboard')">Dashboard</flux:breadcrumbs.item>
@@ -33,21 +39,44 @@
 
 			<flux:textarea label="Resumen" name="excerpt">{{old('excerpt', $post->excerpt)}}</flux:textearea>
 
-			<flux:textarea label="Contenido" name="content" rows="16">{{old('content', $post->content)}}</flux:textearea>
+			<div class=mb-4>
+				<p class="font-medium text-sm mb-1">
+					Contenido
+				</p>	
+				<div id="editor">{!! old('content', $post->content) !!}</div>
+				<textarea class="hidden" name="content" id="content">{{old('content', $post->content)}}</textarea>
+			</div>
 
-			<div class="space-x-2">
-				<label>
-					<input type="radio" name="is_published" value="0" @checked(old('is_published', $post->is_published) == 0)>
-					<span class="ml-2">
-						No publicado
-					</span>
-				</label>
-				<label>
-					<input type="radio" name="is_published" value="1" @checked(old('is_published', $post->is_published) == 1)>
-					<span class="ml-2">
-						Publicado
-					</span>
-				</label>
+			<div>
+				<p class="text-sm font-medium mb-1">Etiquetas</p>
+				<ul>
+					@foreach ($tags as $tag)
+						<li>
+							<label class="flex items-center space-x-2">
+								<input type="checkbox" name="tags[]" value="{{ $tag->id }}"
+								@checked(in_array($tag->id, old('tags',$post->tags->pluck('id')->toArray())))>
+								{{  $tag->name }}
+							</label>
+						</li>
+					@endforeach
+				</ul>	
+			</div>
+			<div>
+				<p class="text-sm font-medium mb-1">Estado</p>
+				<div class="mt-4 flex space-x-2">
+					<label>
+						<input type="radio" name="is_published" value="0" @checked(old('is_published', $post->is_published) == 0)>
+						<span class="ml-2">
+							No publicado
+						</span>
+					</label>
+					<label>
+						<input type="radio" name="is_published" value="1" @checked(old('is_published', $post->is_published) == 1)>
+						<span class="ml-2">
+							Publicado
+						</span>
+					</label>
+				</div>
 			</div>
 
 			<div class="flex justify-end">
@@ -57,4 +86,15 @@
 			</div>	
 		</div>
 	</form>
+	@push('js')
+		<script src="https://cdn.jsdelivr.net/npm/quill@2.0.3/dist/quill.js"></script>
+		<script>
+			const quill = new Quill('#editor', {
+				theme: 'snow'
+			});
+			quill.on('text-change', function() {
+				document.querySelector('#content').value = quill.root.innerHTML;
+			});
+		</script>
+	@endpush
 </x-layouts.app>

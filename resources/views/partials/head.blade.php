@@ -11,4 +11,5 @@
 <link href="https://fonts.bunny.net/css?family=instrument-sans:400,500,600" rel="stylesheet" />
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
+@stack('css');
 @vite(['resources/css/app.css', 'resources/js/app.js'])

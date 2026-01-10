@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\Category;
 use App\Models\Post;
+use App\Models\Tag;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
@@ -63,8 +64,9 @@ class PostController extends Controller
      */
     public function edit(Post $post)
     {
+        $tags = Tag::all();
         $categories = Category::all();
-        return view('admin.posts.edit', compact('post', 'categories'));
+        return view('admin.posts.edit', compact('post', 'categories', 'tags'));
     }
 
     /**
@@ -80,6 +82,9 @@ class PostController extends Controller
             'content' => 'nullable',
             'image' => 'nullable|image',
             'is_published' => 'required|boolean',
+            
+            'tags' => 'nullable|array',
+            'tags.*' => 'exists:tags,id',
         ]);
 
         if ($request->hasFile('image')) {
@@ -90,6 +95,8 @@ class PostController extends Controller
         }
 
         $post->update($data);
+        $post->tags()->sync($data['tags'] ?? []);
+
         session()->flash('swal', [
             'icon' => 'sucesss',
             'title' => '¡Bien hecho!',
